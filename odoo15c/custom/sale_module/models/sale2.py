@@ -10,6 +10,7 @@ class SaleModulelines (models.Model):
     description = fields.Char(string = "Description")
     quantity = fields.Integer(string = "Quantity")
     unit_price = fields.Float(string = "Unit Price")
+    example = fields.Char(string="Examples")
     currency_id = fields.Many2one('res.currency', related = 'sale_id.currency_id')
     subtotal = fields.Monetary(compute='_compute_amount', string = "subtotal")
     @api.onchange('product_id')

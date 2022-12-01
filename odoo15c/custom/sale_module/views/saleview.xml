@@ -22,6 +22,7 @@
                         <group>
                             <field name="number"/>
                             <field name = "address"/>
+                            <field name="example"
 
                         </group>
                     </group>
