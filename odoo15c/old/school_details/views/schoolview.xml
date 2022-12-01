@@ -1,0 +1,79 @@
+<odoo>
+
+    <record id="school_details_form_view" model="ir.ui.view">
+        <field name="name">School Details Form</field>
+        <field name="model">school.details</field>
+        <field name="arch" type="xml">
+            <form string="SChool">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible='draft,done,waiting,cancelled'/>
+                    <button name="action_test" string="Test Button" type="object" class="oe_highlight" states="done"/>
+                </header>
+                <sheet>
+                    <group string="Details">
+                        <group>
+                            <field name="subjects"/>
+                        </group>
+                        <group>
+                            <field name="fee"/>
+                            <field name="is_half_term" widget="boolean_toggle" invisible="1"/>
+                            <field name="semester" attrs="{'invisible': [('is_half_term', '=', False)], 'required': [('is_half_term', '!=', False)]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Donation" name="donation">
+                            <field name="donation_line_ids">
+                                <tree editable="bottom">
+                                    <field name="payment_ref"/>
+                                    <field name="amount"/>
+                                </tree>
+                            </field>
+                            <group colspan="4">
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="amount_total"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+      
+    <record id="school_details_search_view" model="ir.ui.view">
+        <field name="name">School Details Search</field>
+        <field name="model">school.details</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="subjects" string="School Details"/>
+                <filter name="filter_half_term" string="half term" domain="[('fee', '=', 'half term')]"/>
+                <filter name="filter_full_term" string="full term" domain="[('fee', '=', 'full term')]"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="school_details_tree_view" model="ir.ui.view">
+        <field name="name">School Details Tree</field>
+        <field name="model">school.details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="subjects"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_details_action" model="ir.actions.act_window">
+        <field name="name">School Details</field>
+        <field name="res_model">school.details</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <menuitem id="school_details_action_menu" action="school_details_action" name="school"/>
+</odoo>

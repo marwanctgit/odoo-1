@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_Classes_details,access_Classes_details,model_classes_details,base.group_user,1,1,1,1
+access_class.donations.lines,access_class_donations_lines,model_class_donations_lines,base.group_user,1,1,1,1

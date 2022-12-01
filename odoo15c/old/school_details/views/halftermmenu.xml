@@ -1,0 +1,16 @@
+<odoo>
+
+        <record id="action_halfterm" model="ir.actions.act_window">
+            <field name="name">HalfTerm</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.details</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('fee', '=', 'halfterm')]</field>
+            <field name="context">{'default_fee': 'halfterm'}</field>
+        </record>
+
+    <menuitem id="halfterm_school_root"
+                name="Halfterm"
+                action="action_halfterm"/>
+
+</odoo>

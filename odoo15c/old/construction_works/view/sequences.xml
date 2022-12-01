@@ -1,0 +1,10 @@
+<odoo>
+
+    <record id = "seq_construction_works" model = "ir.sequence">
+        <field name = "name">Construction Sequence</field>
+        <field name = "code">construction.sequence</field>
+        <field name = "prefix">HP</field>
+        <field name = "padding">7</field>
+        <field name = "company_id" eval="False"/>
+    </record>
+</odoo>

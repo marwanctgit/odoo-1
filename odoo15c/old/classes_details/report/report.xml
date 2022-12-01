@@ -1,0 +1,13 @@
+<odoo>
+    <record id= "report_classes_details" model="ir.actions.report">
+        <field name="name">Classes Details</field>
+        <field name="model">classes.details</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">classes_details.report_full_details</field>
+        <field name="report_file">classes_details.report_full_details</field>
+        <field name="print_report_name">Class Reports - %s' % (class.reports)</field>
+        <field name="binding_model_id" ref="base.model_classes"></field>
+        <field name="binding_type">report</field>
+    </record>
+
+    

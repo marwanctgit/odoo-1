@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_item_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="required_items.report_item_details_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="required_items.report_item_details_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2 style="text-align:center">
+                    Required Items
+                </h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th name="product">Product</th>
+                            <th name="description">Description</th>
+                            <th name="quantity">Quantity</th>
+                            <th name="unit_price">Unit Price</th>
+                            <th name="subtotal">Sub Total</th>
+                            <th name="barcode">Barcode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.required_lines_ids" t-as="line">
+                            <tr>
+                                <td name="product">
+                                    <span t-field="line.product_id.display_name"/>
+                                </td>
+                                <td name="description">
+                                    <span t-field="line.description"/>
+                                </td>
+                                <td name="quantity">
+                                    <span t-field="line.quantity"/>
+                                </td>
+                                <td name="unitprice">
+                                    <span t-field="line.unit_price"/>
+                                </td>
+                                <td name="subtotal">
+                                    <span t-field="line.subtotal"/>
+                                </td>
+                                <td name="barcode">
+                                    <span t-field="line.barcode"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>
+
+        

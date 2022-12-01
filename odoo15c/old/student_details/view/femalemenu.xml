@@ -1,0 +1,16 @@
+<odoo>
+
+        <record id="action_female" model="ir.actions.act_window">
+            <field name="name">Female</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student.details</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('gender', '=', 'female')]</field>
+            <field name="context">{'default_gender': 'female'}</field>
+        </record>
+
+    <menuitem id="female_student_root"
+                name="Female"
+                action="action_female"/>
+
+</odoo>

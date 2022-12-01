@@ -1,0 +1,16 @@
+<odoo>
+
+        <record id="action_fullterm" model="ir.actions.act_window">
+            <field name="name">FullTerm</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.details</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('fee', '=', 'fullterm')]</field>
+            <field name="context">{'default_fee': 'fullterm'}</field>
+        </record>
+
+    <menuitem id="fullterm_school_root"
+                name="Fullterm"
+                action="action_fullterm"/>
+
+</odoo>

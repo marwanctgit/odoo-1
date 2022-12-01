@@ -1,0 +1,85 @@
+<odoo>
+
+    <record id="classes_details_form_view" model="ir.ui.view">
+        <field name="name">Classes Details Form</field>
+        <field name="model">classes.details</field>
+        <field name="arch" type="xml">
+            <form string="Classes">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible='draft,done'/>
+                    <button name="action_test" string="Test Button" type="object" class="oe_highlight" states="draft"/>
+                </header>
+                <sheet>
+                    <group string="Details">
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="language"/>
+                            <field name="ref"/>
+                        </group>
+                        <group>
+                            <field name="subject"/>
+                            <field name="is_malayalam" widget="boolean_toggle" invisible="1"/>
+                            <field name="subject" attrs="{'invisible':[('is_malayalam', '=', False)],'required':[('is_malayalam', '!=', False)]}"/> 
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Donation" name="donation">
+                            <field name="donation_line_ids">
+                                <tree editable="bottom">
+                                    <field name="payment"/>
+                                    <field name="amount"/>
+                                    <field name="donation_id"/>
+                                </tree>
+                            </field>
+                            <group colspan="4">
+                                <group class="oe_suntotal_footer_oe_right">
+                                    <field name="amount_total"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                        
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+
+    <record id="classes_details_tree_view" model="ir.ui.view">
+        <field name="name">Classes Details Tree</field>
+        <field name="model">classes.details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="classes_details_search_view" model="ir.ui.view">
+        <field name="name">Classes Details Search</field>
+        <field name="model">classes.details</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Class Details"/>
+                
+                <filter name= "filter_malayalam" string="malayalam" domain="[('language', '=', 'malayalam')]"/>
+                <filter name= "filter_hindi" string="hindi" domain="[('language', '=', 'hindi')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Language" name="group_by_language" context="{'group_by':'language'}"/>
+                </group>
+            </search>
+        </field>
+    </record> 
+
+    <record id="classes_details_action" model="ir.actions.act_window">
+        <field name="name">Classes Details</field>
+        <field name="res_model">classes.details</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <menuitem id="classes_details_action_menu" action="classes_details_action" name="classes"/>
+</odoo>
+

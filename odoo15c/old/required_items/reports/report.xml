@@ -1,0 +1,13 @@
+<odoo>
+
+    <record id="report_item_details_action" model="ir.actions.report">
+        <field name="name">Item Details</field>
+        <field name="model">required.items</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">required_items.report_item_details</field>
+        <field name="report_file">required_items.report_item_details</field>
+        <field name="binding_model_id" ref="model_required_items"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

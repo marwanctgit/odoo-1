@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_School_details,access_School_details,model_school_details,base.group_user,1,1,1,1
+access_school.donations.lines,access_school_donations_lines,model_school_donations_lines,base.group_user,1,1,1,1

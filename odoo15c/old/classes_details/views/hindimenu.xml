@@ -1,0 +1,16 @@
+<odoo>
+
+        <record id="action_hindi" model="ir.actions.act_window">
+            <field name="name">Hindi</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">classes.details</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('language_id', '=', 'hindi')]</field>
+            <field name="context">{'default_language_id': 'hindi'}</field>
+        </record>
+
+    <menuitem id="hindi_classes_root"
+                name="Hindi"
+                action="action_hindi"/>
+
+</odoo>

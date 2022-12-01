@@ -1,0 +1,10 @@
+<odoo>
+
+    <record id = "seq_required_items" model = "ir.sequence">
+        <field name = "name">Required Sequence</field>
+        <field name = "code">required.sequence</field>
+        <field name = "prefix">HP</field>
+        <field name = "padding">7</field>
+        <field name = "company_id" eval="False"/>
+    </record>
+</odoo>
